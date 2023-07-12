@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :users, counter_cache: :post_count
+  belongs_to :users, counter_cache: :posts_counter
   has_many :likes
   has_many :comments
 end
