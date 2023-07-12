@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_200249) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.bigint "post_id", null: false
+    t.index ["author_id", "post_id"], name: "index_comments_on_author_id_and_post_id"
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_200249) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.bigint "post_id", null: false
+    t.index ["author_id", "post_id"], name: "index_likes_on_author_id_and_post_id"
     t.index ["author_id"], name: "index_likes_on_author_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
   end
