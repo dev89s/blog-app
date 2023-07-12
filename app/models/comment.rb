@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :posts, counter_cache: :comments_counter
+  belongs_to :post, counter_cache: :comments_counter
 end
