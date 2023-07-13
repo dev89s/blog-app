@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe Post, type: :model do
-  subject {
-    first_user = User.create(name: 'Sasan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Student from Iran.', posts_counter: 0)
-    first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post', likes_counter: 0, comments_counter: 0)
-  }
+  subject do
+    first_user = User.create(name: 'Sasan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Student from Iran.', posts_counter: 0)
+    Post.create(author: first_user, title: 'Hello', text: 'This is my first post', likes_counter: 0,
+                comments_counter: 0)
+  end
 
   before { subject.save }
 
@@ -60,5 +62,4 @@ describe Post, type: :model do
     subject.likes_counter = 200
     expect(subject).to be_valid
   end
-
 end
