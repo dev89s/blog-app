@@ -10,6 +10,6 @@ class Post < ApplicationRecord
   end
 
   def recent_comments
-    comments.limit(5).oder(created_at: :desc)
+    comments.limit(5).order(created_at: :desc)
   end
 end
