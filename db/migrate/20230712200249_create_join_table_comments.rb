@@ -7,8 +7,5 @@ class CreateJoinTableComments < ActiveRecord::Migration[7.0]
     add_reference :comments, :author, foreign_key: { to_table: 'users' }, index: true
     add_reference :comments, :post, null: false, foreign_key: true, index: true
     add_index :comments, [:author_id, :post_id]
-    # rename_column :comments, :user_id, :author_id
-    # add_foreign_key :comments, :users, column: :author_id
-    # add_foreign_key :comments, :posts
   end
 end
