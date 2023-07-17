@@ -1,0 +1,22 @@
+<% stylesheet_link_tag "tables"%>
+<h1>Specific User</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Biography</th>
+      <th>Number of posts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @user.bio %></td>
+        <td style="text_align:center"><%= @user.posts_counter %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>

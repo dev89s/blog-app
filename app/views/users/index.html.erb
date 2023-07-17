@@ -1,0 +1,25 @@
+<% stylesheet_link_tag "tables"%>
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Techer Name</th>
+      <th>Biography</th>
+      <th>Number of posts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.bio %></td>
+        <td><%= user.posts_counter %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
