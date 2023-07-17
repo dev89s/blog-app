@@ -1,0 +1,23 @@
+<% stylesheet_link_tag "tables"%>
+
+<h1>Specific Post</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Title</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @post.title unless @post.nil? %></td>
+        <td><%= @post.text unless @post.nil?%></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
