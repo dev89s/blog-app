@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :request do
   describe 'Get /index' do
     before(:context) do
-      if User.all.length == 0
-        user = User.create name: 'Sasan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Student from Iran.', posts_counter: 0
+      if User.all.empty?
+        User.create name: 'Sasan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Student from Iran.',
+                    posts_counter: 0
       end
     end
     it 'renders successful response' do

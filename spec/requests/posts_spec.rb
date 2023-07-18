@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :request do
   before(:context) do
-    if Post.all.length == 0
+    if Post.all.empty?
       Post.create author: User.first, title: 'Needed title', text: 'Needed text', likes_counter: 0, comments_counter: 0
     end
   end
