@@ -1,22 +1,20 @@
-<% stylesheet_link_tag "tables"%>
-<h1>Specific User</h1>
+<% stylesheet_link_tag "user-details"%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Biography</th>
-      <th>Number of posts</th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= @user.bio %></td>
-        <td style="text_align:center"><%= @user.posts_counter %></td>
-      </tr>
-  </tbody>
-</table>
-
+<main class='main-container'>
+  <h1>Specific User</h1>
+  <section class='user-section'>
+    <%= render partial: "shared/user-container", locals: { user: @user } %>
+    <div class='bio-container'>
+      <h3 class='bio-header'>Bio</h3>
+      <p class='bio-text'>
+        <%= @user.bio %>
+      </p>
+    </div>
+  </section>
+  <section class='user-posts-section'>
+    <% @posts.each do |post| %>
+      <%= render partial: 'shared/post-container', locals: { post: post } %>
+    <% end %>
+  </section>
+</main>
 <br>
