@@ -1,27 +1,24 @@
-<% stylesheet_link_tag "tables"%>
+<% stylesheet_link_tag "posts-list"%>
 
-<h1>Listing Posts</h1>
+<main class='main-container'>
+  <h1>Listing Posts</h1>
+  <%= render partial: "shared/user-container", locals: { user: @user } %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Post id</th>
-      <th>Title</th>
-      <th>Text</th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <section class='posts-section'>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= post.id %></td>
-        <td><%= post.title %></td>
-        <td><%= post.text %></td>
-      </tr>
+      <%= render partial: 'shared/post-container', locals: { post: post } %>
+      <div class='post-list-comments'>
+        <% counter = 0 %>
+        <% @comments.each do |comment| %>
+          <% if comment.author_id == @user.id %>
+            <% break if counter > 5%>
+            <% counter += 1 %>
+            <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </section>
 
-<br>
+  <br>
+</main>
