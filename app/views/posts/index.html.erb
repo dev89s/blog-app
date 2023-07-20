@@ -6,14 +6,18 @@
 
   <section class='posts-section'>
     <% @posts.each do |post| %>
+    <div>
       <%= render partial: 'shared/post-container', locals: { user:@user, post: post } %>
-      <div class='post-list-comments'>
-        <% @comments.each do |comment| %>
-          <% if comment.author_id == @user.id %>
+      <% comments = post.recent_comments%>
+      <% comment = comments[0]%>
+      <% if comments.length > 0 %>
+        <div class='post-list-comments'>
+          <% comments.each do |comment| %>
             <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end%>
+    </div>
     <% end %>
   </section>
 

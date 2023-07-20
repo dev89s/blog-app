@@ -14,11 +14,13 @@
       <%= @post.text %>
     </p>
   </div>
+  <% if @comments.any? %>
   <div class='post-list-comments'>
     <% @comments.each do |comment| %>
       <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
     <% end %>
   </div>
+  <% end %>
 
   </div>
 </section>
