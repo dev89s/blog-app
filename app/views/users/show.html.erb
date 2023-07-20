@@ -13,8 +13,11 @@
   </section>
   <section class='user-posts-section'>
     <% @posts.each do |post| %>
-      <%= render partial: 'shared/post-container', locals: { post: post } %>
+      <%= render partial: 'shared/post-container', locals: {user: @user, post: post } %>
     <% end %>
   </section>
+  <form class='show-posts' action='/users/<%=@user.id%>/posts'>
+    <input class='top-margin' type='submit' value='Show All Posts'>
+  </form>
 </main>
 <br>

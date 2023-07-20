@@ -1,8 +1,13 @@
 <div class='post-container'>
   <h3 class='post-title'><%= post.title %> (Post #<%= post.id %>)</h3>
   <p class='post-text'><%= post.text %></p>
-  <p class='likes-and-comments-count'>
-    Comments: <%= post.comments_counter %>
-    Likes: <%= post.likes_counter %>
-  </p>
+  <div class='post-alt'>
+    <form class='show-posts' action="/users/<%=user.id%>/posts/<%=post.id%>">
+      <input type='Submit' value='Show Post'>
+    </form>
+    <p class='likes-and-comments-count'>
+      Comments: <%= post.comments_counter %>,&nbsp;
+      Likes: <%= post.likes_counter %>
+    </p>
+  </div>
 </div>

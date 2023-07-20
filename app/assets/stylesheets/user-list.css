@@ -33,8 +33,16 @@ span.user-name {
   padding-inline: 30px;
 }
 
-span.posts-count {
+.user-alt-text {
   align-self: flex-end;
   padding-right: 30px;
   padding-bottom: 30px;
+}
+
+span.posts-count {
+  margin-left: 20px;
+}
+
+a.show-user {
+  align-self: flex-end;
 }

@@ -39,5 +39,33 @@ p.post-text {
 
 p.likes-and-comments-count {
   text-align: right;
-  padding-right: 10px;
+  padding-inline: 10px;
+}
+
+form.show-posts {
+  display: flex;
+  justify-content: center;
+}
+
+.top-margin {
+  margin-top: 10px;
+}
+
+.show-posts input {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #777;
+  padding-block: 3px;
+}
+
+.show-posts input:hover {
+  color: #fff;
+  background-color: #555;
+  cursor: pointer;
+}
+
+.post-alt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

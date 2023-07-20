@@ -4,8 +4,14 @@
     <span class='user-name'>
       <%= user.name %>
     </span>
-    <span class='posts-count'> Number of posts:
-      <%= user.posts_counter %>
-    </span>
+    <div class='user-alt-text'>
+      <% if current_page?('/users/') || current_page?('/') %>
+        <a class='show-user' href='/users/<%=user.id%>'>Show user</a>
+      <% end %>
+      <span class='posts-count'>
+        Number of posts:
+        <%= user.posts_counter %>
+      </span>
+    </div>
   </div>
 </div>
