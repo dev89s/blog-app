@@ -6,13 +6,10 @@
 
   <section class='posts-section'>
     <% @posts.each do |post| %>
-      <%= render partial: 'shared/post-container', locals: { post: post } %>
+      <%= render partial: 'shared/post-container', locals: { user:@user, post: post } %>
       <div class='post-list-comments'>
-        <% counter = 0 %>
         <% @comments.each do |comment| %>
           <% if comment.author_id == @user.id %>
-            <% break if counter > 5%>
-            <% counter += 1 %>
             <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
           <% end %>
         <% end %>
