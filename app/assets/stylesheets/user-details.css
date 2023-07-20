@@ -1,0 +1,71 @@
+section.user-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h3.bio-header,
+p.bio-text {
+  padding: 0;
+  margin: 0;
+}
+
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #777;
+}
+
+section.user-posts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #777;
+  padding: 20px;
+}
+
+p.post-text {
+  padding: 0;
+  margin: 0;
+}
+
+p.likes-and-comments-count {
+  text-align: right;
+  padding-inline: 10px;
+}
+
+form.show-posts {
+  display: flex;
+  justify-content: center;
+}
+
+.top-margin {
+  margin-top: 10px;
+}
+
+.show-posts input {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #777;
+  padding-block: 3px;
+}
+
+.show-posts input:hover {
+  color: #fff;
+  background-color: #555;
+  cursor: pointer;
+}
+
+.post-alt {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

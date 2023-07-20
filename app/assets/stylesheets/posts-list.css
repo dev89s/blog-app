@@ -1,0 +1,25 @@
+section.posts-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.post-title {
+  margin: 0;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likes-and-comments {
+  padding-right: 10px;
+}
+
+.post-list-comments {
+  margin-top: 10px;
+  border: 1px solid #777;
+  padding: 20px;
+}
