@@ -22,7 +22,8 @@
     <% if @comments.any? %>
     <div class='post-list-comments'>
       <% @comments.each do |comment| %>
-        <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
+      <% user = User.find(comment.author_id) %>
+        <%= render partial: 'shared/comment-container', locals: { comment: comment, user: user } %>
       <% end %>
     </div>
     <% end %>

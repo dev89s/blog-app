@@ -33,3 +33,7 @@ section.posts-section {
   color: #eee;
   background-color: green;
 }
+
+.left-margin {
+  margin-left: 10px;
+}
