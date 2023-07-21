@@ -1,0 +1,20 @@
+<% stylesheet_link_tag "posts-list"%>
+
+<h1> New Comment </h1>
+
+<%= form_with model: comment, url: "/users/#{params[:user_id]}/posts/#{params[:id]}/create_comment", method: :post, local: true, scope: :comment do |form| %>
+  <div>
+    <%= form.label 'Text' %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Comment"%>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="error-message">
+    <%= flash[:error] %>
+  </div>
+<% end %>

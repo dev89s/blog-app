@@ -7,7 +7,13 @@
     </form>
     <p class='likes-and-comments-count'>
       Comments: <%= post.comments_counter %>,&nbsp;
-      Likes: <%= post.likes_counter %>
+      Likes: <%= post.likes_counter %>,&nbsp;
+      <form class='show-posts' action="/users/<%=user.id%>/posts/<%=post.id%>/new_comment">
+        <input type='Submit' value='Add comment'>
+      </form>
+      <form class='show-posts left-margin' action="/users/<%=user.id%>/posts/<%=post.id%>/add_like" method="post">
+        <input type='Submit' value='Like!'>
+      </form>
     </p>
   </div>
 </div>
