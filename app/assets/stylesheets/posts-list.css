@@ -23,3 +23,13 @@ section.posts-section {
   border: 1px solid #777;
   padding: 20px;
 }
+
+.error-message {
+  color: #eee;
+  background-color: red;
+}
+
+.success-message {
+  color: #eee;
+  background-color: green;
+}

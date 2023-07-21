@@ -4,6 +4,12 @@
   <h1>Listing Posts</h1>
   <%= render partial: "shared/user-container", locals: { user: @user } %>
 
+  <% if flash[:success] %>
+    <div class="success-message top-margin">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+
   <section class='posts-section'>
     <% @posts.each do |post| %>
     <div>

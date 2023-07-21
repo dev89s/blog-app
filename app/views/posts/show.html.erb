@@ -10,19 +10,26 @@
         Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %>
       </span>
     </div>
-    <p class='post-text'>
-      <%= @post.text %>
-    </p>
-  </div>
-  <% if @comments.any? %>
-  <div class='post-list-comments'>
-    <% @comments.each do |comment| %>
-      <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
+      <p class='post-text'>
+        <%= @post.text %>
+      </p>
+    </div>
+    <% if flash[:success] %>
+      <div class="success-message top-margin">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+    <% if @comments.any? %>
+    <div class='post-list-comments'>
+      <% @comments.each do |comment| %>
+        <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
+      <% end %>
+    </div>
     <% end %>
   </div>
-  <% end %>
-
-  </div>
+  <form class='show-posts' action="/users/<%=@user.id%>/posts/<%=@post.id%>/new_comment">
+    <input class='top-margin' type='Submit' value='Add comment'>
+  </form>
 </section>
 
 </main>
