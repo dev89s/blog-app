@@ -1,0 +1,17 @@
+<h1> New Post </h1>
+
+<%= form_with model: post, url: "/users/#{user.id}/posts/create", method: :post, local: true, scope: :post do |form| %>
+   <div>
+    <%= form.label 'Title' %>
+    <%= form.text_field :title %>
+  </div>
+
+   <div>
+    <%= form.label 'Text' %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Post"%>
+  </div>
+<% end %>
