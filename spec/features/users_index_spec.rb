@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'User index', type: :users do
-
   scenario 'can see username of all other users' do
     visit 'users#index'
     users = User.all
@@ -15,7 +14,7 @@ RSpec.describe 'User index', type: :users do
     users = User.all
 
     users.each do |user|
-      images = all('img').map { |img| img[:src]}
+      images = all('img').map { |img| img[:src] }
       expect(images.include?(user.photo)).to be(true)
     end
   end

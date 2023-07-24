@@ -18,8 +18,8 @@ RSpec.describe 'User index', type: :posts do
   scenario 'can see how many comments a post has' do
     user = User.first
     post = Post.includes(:comments).find_by(author_id: user.id)
-    if post.comments.length == 0
-      Comment.create(text: "A comment", author_id: user.id, post_id: post.id)
+    if post.comments.empty?
+      Comment.create(text: 'A comment', author_id: user.id, post_id: post.id)
       post = Post.includes(:comments).find_by(author_id: user.id)
     end
     comments = post.comments
@@ -30,7 +30,7 @@ RSpec.describe 'User index', type: :posts do
   scenario 'can see how many likes a post has' do
     user = User.first
     post = Post.includes(:likes).find_by(author_id: user.id)
-    if post.likes.length == 0
+    if post.likes.empty?
       Like.create(author_id: user.id, post_id: post.id)
       post = Post.includes(:likes).find_by(author_id: user.id)
     end
@@ -49,8 +49,8 @@ RSpec.describe 'User index', type: :posts do
   scenario 'can see username of each commenter' do
     user = User.first
     post = Post.includes(:comments).find_by(author_id: user.id)
-    if post.comments.length == 0
-      Comment.create(text: "A comment", author_id: user.id, post_id: post.id)
+    if post.comments.empty?
+      Comment.create(text: 'A comment', author_id: user.id, post_id: post.id)
       post = Post.includes(:comments).find_by(author_id: user.id)
     end
     visit "/users/#{user.id}/posts/#{post.id}"
@@ -62,8 +62,8 @@ RSpec.describe 'User index', type: :posts do
   scenario 'can see text of each comment' do
     user = User.first
     post = Post.includes(:comments).find_by(author_id: user.id)
-    if post.comments.length == 0
-      Comment.create(text: "A comment", author_id: user.id, post_id: post.id)
+    if post.comments.empty?
+      Comment.create(text: 'A comment', author_id: user.id, post_id: post.id)
       post = Post.includes(:comments).find_by(author_id: user.id)
     end
     comment = post.comments.first

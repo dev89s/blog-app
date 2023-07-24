@@ -46,7 +46,7 @@ RSpec.describe 'User index', type: :users do
     user = User.find_by(name: 'Sasan')
 
     visit "/users/#{user.id}"
-    show_all_btn = all('input[type="Submit"]').filter { |input| input.value == 'Show All Posts'}
+    show_all_btn = all('input[type="Submit"]').filter { |input| input.value == 'Show All Posts' }
     expect(show_all_btn.length).to eq(1)
   end
 
@@ -62,7 +62,7 @@ RSpec.describe 'User index', type: :users do
     user = User.find_by(name: 'Sasan')
 
     visit "/users/#{user.id}"
-    show_all_btn = all('input[type="Submit"]').filter { |input| input.value == 'Show All Posts'}
+    show_all_btn = all('input[type="Submit"]').filter { |input| input.value == 'Show All Posts' }
     expect(show_all_btn.length).to eq(1)
   end
 end
