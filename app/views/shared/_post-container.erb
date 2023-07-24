@@ -3,7 +3,7 @@
   <p class='post-text'><%= post.text %></p>
   <div class='post-alt'>
     <form class='show-posts' action="/users/<%=user.id%>/posts/<%=post.id%>">
-      <input type='Submit' value='Show Post'>
+      <input id="post-<%= post.id%>" type='Submit' value='Show Post'>
     </form>
     <p class='likes-and-comments-count'>
       Comments: <%= post.comments_counter %>,&nbsp;
