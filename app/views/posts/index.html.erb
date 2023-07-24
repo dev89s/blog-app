@@ -18,13 +18,12 @@
     <% @posts.each do |post| %>
     <div>
       <%= render partial: 'shared/post-container', locals: { user:@user, post: post } %>
-      <% comments = post.recent_comments%>
+      <% comments = post.comments%>
       <% comment = comments[0]%>
       <% if comments.length > 0 %>
         <div class='post-comments-list'>
           <% comments.each do |comment| %>
-          <% user = User.find(comment.author_id) %>
-            <%= render partial: 'shared/comment-container', locals: { comment: comment, user: user } %>
+            <%= render partial: 'shared/comment-container', locals: { comment: comment, user: @user } %>
           <% end %>
         </div>
       <% end%>

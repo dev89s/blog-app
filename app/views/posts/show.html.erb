@@ -14,7 +14,7 @@
       <%= @post.text %>
     </p>
     <span class='post-author'>
-      <p><strong>Author:</strong> <%= User.find(@post.author_id).name%></p>
+      <p><strong>Author:</strong> <%= @user.name%></p>
     </span>
   </div>
   <% if flash[:success] %>
@@ -25,7 +25,7 @@
   <% if @comments.any? %>
   <div class='post-comments-list'>
     <% @comments.each do |comment| %>
-    <% user = User.find(comment.author_id) %>
+    <% user = comment.author %>
       <%= render partial: 'shared/comment-container', locals: { comment: comment, user: user } %>
     <% end %>
   </div>
