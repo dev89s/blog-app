@@ -15,6 +15,10 @@ RSpec.describe 'User index', type: :posts do
     expect(page).to have_content "Author: #{user.name}"
   end
 
+  scenario "I shouldn't have to see the user's age", negative: true do
+    expect(page).to_not have_content('Age')
+  end
+
   scenario 'can see how many comments a post has' do
     user = User.first
     post = Post.includes(:comments).find_by(author_id: user.id)
@@ -39,11 +43,19 @@ RSpec.describe 'User index', type: :posts do
     expect(page).to have_content("Likes: #{likes.length}")
   end
 
+  scenario "I should not see a bio other than the user's bio", negative: true do
+    expect(page).to_not have_content('nobio')
+  end
+
   scenario 'can see body of post' do
     user = User.includes(:posts).first
     post = user.posts.first
     visit "/users/#{user.id}/posts/#{post.id}"
     expect(page).to have_content(post.text)
+  end
+
+  scenario "I shouldn't see a button that lets me like a user's posts", negative: true do
+    expect(page).to_not have_link('Like')
   end
 
   scenario 'can see username of each commenter' do
