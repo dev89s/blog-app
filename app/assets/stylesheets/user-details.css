@@ -37,6 +37,11 @@ p.post-text {
   margin: 0;
 }
 
+span.post-author {
+  font-size: 18px;
+  padding-block-start: 20px;
+}
+
 p.likes-and-comments-count {
   text-align: right;
   padding-inline: 10px;

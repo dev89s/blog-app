@@ -4,6 +4,8 @@ RSpec.describe Post, type: :request do
   before(:context) do
     if Post.all.empty?
       Post.create author: User.first, title: 'Needed title', text: 'Needed text', likes_counter: 0, comments_counter: 0
+      Post.create author: User.find_by(name: 'Sasan'), title: 'Needed title2', text: 'Needed text2', likes_counter: 0,
+                  comments_counter: 0
     end
   end
   describe 'Get /users/:user_id/posts' do

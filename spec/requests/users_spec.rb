@@ -6,6 +6,8 @@ RSpec.describe User, type: :request do
       if User.all.empty?
         User.create name: 'Sasan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Student from Iran.',
                     posts_counter: 0
+        User.create name: 'Hassan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Another student from Iran.',
+                    posts_counter: 0
       end
     end
     it 'renders successful response' do
