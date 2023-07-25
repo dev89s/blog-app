@@ -189,6 +189,11 @@ Example:
 - GitHub: [@dev89s](https://github.com/dev89s)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/sasan-moshirabadi)
 
+👤 **Kibrewossen Y Mekasha**
+
+- GitHub: [@akos29](https://github.com/akos29)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kibrewossen-y-mekasha/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
