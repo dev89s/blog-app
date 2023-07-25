@@ -42,6 +42,17 @@ RSpec.describe 'User index', type: :users do
     end
   end
 
+  scenario "shouldn't see a post greater than 3 posts", negative: true do
+    users = User.includes(:posts).all
+    
+    users.each do |user|
+      visit "/users/#{user.id}"
+      post_length =page.all('div.post').length
+     
+      expect(post_length).to be <= 3
+    end
+  end   
+
   scenario 'can see the show all posts button' do
     user = User.find_by(name: 'Sasan')
 
