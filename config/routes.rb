@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   post "/users/:user_id/posts/:id/create_comment", to: "posts#create_comment", as: 'create_comment'
   post "/users/:user_id/posts/:id/add_like", to: "posts#add_like", as: 'add_like'
   get "/users", to: "users#index"
-  get "/", to: "users#index"
   get "/users/:id", to: "users#show"
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "users#index"
 end
