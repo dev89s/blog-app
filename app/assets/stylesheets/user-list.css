@@ -46,3 +46,14 @@ span.posts-count {
 a.show-user {
   align-self: flex-end;
 }
+
+.user-index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+a.sign-up {
+  padding-right: 20px;
+}

@@ -1,7 +1,14 @@
 <% stylesheet_link_tag "user-list"%>
 
 <main class='main-container'>
-  <h1 class='user-list-heading'>User List</h1>
+  <div class='user-index-header'>
+    <h1 class='user-list-heading'>User List</h1>
+    <div class='login-links'>
+    <a class='sign-up' href='/users/sign_up'>Sign Up</a>
+    <a class='sign-up' href='/users/sign_in'>Sign In</a>
+    <a class='sign-up' href='/users/sign_out'>Log out</a>
+    </div>
+  </div>
   <div class='user-list'>
     <% @users.each do |user| %>
       <%= render partial: "shared/user-container", locals: {user: user} %>
