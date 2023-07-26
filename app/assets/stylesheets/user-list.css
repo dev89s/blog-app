@@ -57,3 +57,12 @@ a.show-user {
 a.sign-up {
   padding-right: 20px;
 }
+
+button.logout-btn {
+  background-color: #fff;
+  border: none;
+  font-size: 14px;
+  color: #551a8b;
+  text-decoration: underline;
+  cursor: pointer;
+}
