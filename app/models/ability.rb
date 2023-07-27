@@ -17,9 +17,9 @@ class Ability
     can :create, Like, author: user
 
     return unless user.is?(:admin)  # additional permissions for administrators
-    can :manage, Post, user: user
-    can :manage, Comment, user: user
-    can :create, Like, user: user
+    can :manage, Post, author: user
+    can :manage, Comment, author: user
+    can :create, Like, author: user
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
