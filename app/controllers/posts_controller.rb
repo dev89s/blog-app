@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new new_comment add_like]
+
   def index
     @posts = Post.includes(:comments).where(author_id: params[:user_id]).order(updated_at: :desc)
     @user = User.where(id: params[:user_id])[0]
