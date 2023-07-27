@@ -76,4 +76,8 @@ group :test do
   gem 'webdrivers'
 end
 
+# Authentication library
 gem 'devise', '~> 4.9'
+
+# Authorization library Cancancan
+gem 'cancancan'

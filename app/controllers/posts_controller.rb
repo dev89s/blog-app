@@ -82,4 +82,19 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def delete_post
+    post = Post.find(params[:id])
+    respond_to do |format|
+      format.html do
+        if post.destroy
+          flash[:success] = 'Post deleted'
+          redirect_to "/users/#{params[:user_id]}/posts/"
+        else
+          flash.now[:error] = 'Error: Delete unsuccesful'
+          redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
+        end
+      end
+    end
+  end
 end

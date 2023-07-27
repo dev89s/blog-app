@@ -5,7 +5,7 @@
     <form class='show-posts' action="/users/<%=user.id%>/posts/<%=post.id%>">
       <input id="post-<%= post.id%>" type='Submit' value='Show Post'>
     </form>
-    <p class='likes-and-comments-count'>
+    <div class='likes-and-comments-count'>
       Comments: <%= post.comments_counter %>,&nbsp;
       Likes: <%= post.likes_counter %>,&nbsp;
       <form class='show-posts' action="/users/<%=user.id%>/posts/<%=post.id%>/new_comment">
@@ -14,6 +14,11 @@
       <form class='show-posts left-margin' action="/users/<%=user.id%>/posts/<%=post.id%>/add_like" method="post">
         <input type='Submit' value='Like!'>
       </form>
-    </p>
+      <% if can? :destroy, post%>
+        <form class='show-posts left-margin' action="/users/<%=user.id%>/posts/<%=post.id%>/delete_post" method="post">
+          <input type='Submit' value='Delete'>
+        </form>
+      <%end%>
+    </div>
   </div>
 </div>
