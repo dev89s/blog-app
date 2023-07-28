@@ -4,12 +4,25 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:comments).where(author_id: params[:user_id]).order(updated_at: :desc)
     @user = User.where(id: params[:user_id])[0]
+    respond_to do |format|
+      format.html
+      format.json {render json: @posts}
+    end
   end
 
   def show
     @user = User.find(params[:user_id])
     @post = Post.includes(comments: [:author]).where(id: params[:id])[0]
     @comments = @post.comments
+  end
+
+  def comments
+    @user = User.find(params[:user_id])
+    @post = Post.includes(comments: [:author]).where(id: params[:id])[0]
+    @comments = @post.comments
+    respond_to do |format|
+      format.json {render json: @comments}
+    end
   end
 
   def new
