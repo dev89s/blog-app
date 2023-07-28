@@ -1,6 +1,11 @@
 <div class='comment-container'>
   <div class='comment-details'>
     <%= user.name%> <%= user.surname%>: <%= comment.text %>
+    <% if can? :destroy, comment%>
+    <form action="/users/<%=params[:user_id]%>/posts/<%=comment.post_id%>/<%=comment.id%>/delete_comment" method='post'>
+      <input type='Submit' value='Delete'>
+    </form>
+    <% end %>
   </div>
   <div class='comment-divider'></div>
 </div>
