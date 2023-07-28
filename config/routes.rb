@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/users/:user_id/posts/:id/new_comment", to: "posts#new_comment", as: 'new_comment'
   post "/users/:user_id/posts/:id/create_comment", to: "posts#create_comment", as: 'create_comment'
   post "/users/:user_id/posts/:id/add_like", to: "posts#add_like", as: 'add_like'
+  post "/users/:user_id/posts/:id/delete_post", to: "posts#delete_post", as: 'delete_poste'
+  post "/users/:user_id/posts/:id/:comment_id/delete_comment", to: "posts#delete_comment", as: 'delete_comment'
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"
 

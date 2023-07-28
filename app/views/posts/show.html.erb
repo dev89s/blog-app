@@ -6,15 +6,27 @@
   <div class='post-container'>
     <div class='post-header'>
       <h3 class='post-title'><%= @post.title %> (Post #<%= @post.id %>)</h3>
-      <span class='likes-and-comments'>
-        Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %>
-      </span>
     </div>
     <p class='post-text'>
       <%= @post.text %>
     </p>
+    <div class='likes-and-comments-count'>
+      Comments: <%= @post.comments_counter %>,&nbsp;
+      Likes: <%= @post.likes_counter %>,&nbsp;
+      <form class='show-posts' action="/users/<%=params[:user_id]%>/posts/<%=params[:id]%>/new_comment">
+        <input type='Submit' value='Add comment'>
+      </form>
+      <form class='show-posts left-margin' action="/users/<%=params[:user_id]%>/posts/<%=params[:id]%>/add_like" method="post">
+        <input type='Submit' value='Like!'>
+      </form>
+      <% if can? :destroy, @post%>
+        <form class='show-posts left-margin' action="/users/<%=params[:user_id]%>/posts/<%=params[:id]%>/delete_post" method="post">
+          <input type='Submit' value='Delete'>
+        </form>
+      <%end%>
+    </div>
     <span class='post-author'>
-      <p><strong>Author:</strong> <%= @user.name%></p>
+      <p><strong>Author:</strong> <%= @user.name%>&nbsp;<%= @user.surname%></p>
     </span>
   </div>
   <% if flash[:success] %>

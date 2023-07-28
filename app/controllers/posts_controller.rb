@@ -82,4 +82,34 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def delete_post
+    post = Post.find(params[:id])
+    respond_to do |format|
+      format.html do
+        if post.destroy
+          flash[:success] = 'Post deleted'
+          redirect_to "/users/#{params[:user_id]}/posts/"
+        else
+          flash.now[:error] = 'Error: Delete unsuccesful'
+          redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
+        end
+      end
+    end
+  end
+
+  def delete_comment
+    comment = Comment.find(params[:comment_id])
+    post = Post.find(comment.post_id)
+    respond_to do |format|
+      format.html do
+        if comment.destroy
+          flash[:success] = 'Comment deleted'
+        else
+          flash.now[:error] = 'Error: Delete unsuccesful'
+        end
+        redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
+      end
+    end
+  end
 end

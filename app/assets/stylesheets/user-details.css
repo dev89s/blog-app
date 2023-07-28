@@ -39,12 +39,18 @@ p.post-text {
 
 span.post-author {
   font-size: 18px;
-  padding-block-start: 20px;
 }
 
-p.likes-and-comments-count {
-  text-align: right;
+.likes-and-comments-count {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
   padding-inline: 10px;
+}
+
+.likes-and-comments-count form {
+  display: flex;
 }
 
 form.show-posts {
