@@ -7,19 +7,19 @@ class Ability
     # Handle the case where we don't have a current_user i.e. the user is a guest
     user ||= User.new
 
-    can :read, Post, public: true
-    can :read, Comment, public: true
-    can :read, Like, public: true
+    can :read, Post
+    can :read, Comment
+    can :read, Like
 
     return unless user.present?  # additional permissions for logged in users (they can read their own posts)
     can :manage, Post, author: user
     can :manage, Comment, author: user
-    can :create, Like, author: user
+    can :manage, Like
 
-    return unless user.is?(:admin)  # additional permissions for administrators
-    can :manage, Post, author: user
-    can :manage, Comment, author: user
-    can :create, Like, author: user
+    return unless user.admin? # additional permissions for administrators
+    can :manage, Post
+    can :manage, Comment
+    can :manage, Like
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
