@@ -105,11 +105,10 @@ class PostsController < ApplicationController
       format.html do
         if comment.destroy
           flash[:success] = 'Comment deleted'
-          redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
         else
           flash.now[:error] = 'Error: Delete unsuccesful'
-          redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
         end
+        redirect_to "/users/#{params[:user_id]}/posts/#{params[:id]}/", locals: { post: }
       end
     end
   end

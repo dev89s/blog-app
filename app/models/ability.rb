@@ -11,12 +11,14 @@ class Ability
     can :read, Comment
     can :read, Like
 
-    return unless user.present?  # additional permissions for logged in users (they can read their own posts)
+    return unless user.present? # additional permissions for logged in users (they can read their own posts)
+
     can :manage, Post, author: user
     can :manage, Comment, author: user
     can :manage, Like
 
     return unless user.admin? # additional permissions for administrators
+
     can :manage, Post
     can :manage, Comment
     can :manage, Like
