@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   after_save :post_counter_update
+  after_destroy :post_counter_update
   def post_counter_update
     author.update(posts_counter: author.posts.count)
   end

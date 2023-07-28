@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   ROLES = %i[admin default].freeze
 
-  def is?(requested_role)
-    role == requested_role.to_s
+  def admin?
+    role == "admin"
   end
 
   has_many :posts, foreign_key: :author_id, dependent: :destroy
