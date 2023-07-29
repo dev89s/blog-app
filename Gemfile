@@ -81,3 +81,5 @@ gem 'devise', '~> 4.9'
 
 # Authorization library Cancancan
 gem 'cancancan'
+
+gem 'active_model_serializers'
