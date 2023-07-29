@@ -13,10 +13,15 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"
 
-  namespace :api do
-    resources :users, only: [:index] do
-      resources :posts, only: [:show] do
-        resources :comments, only: [:index]
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [:index, :show] do
+      resources :posts, only: [:index, :show] do
+        resources :comments, only: [:index, :new, :create] do
+          collection do
+            get 'comments', action: 'show'
+            post 'comments', action: 'new'
+          end
+        end
       end
     end
   end
