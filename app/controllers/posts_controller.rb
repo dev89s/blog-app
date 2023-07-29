@@ -80,6 +80,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def create_comment_json
+    comment = Comment.new(params.required(:comment).permit(:text))
+    comment.author_id = current_user.id
+    comment.post_id = Post.find(params[:id]).id
+    post = Post.find(params[:id])
+    respond_to do |format|
+      format.html do
+        if comment.save
+          render json: comment, status: :created
+        else
+          render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+    end
+  end
+
   def add_like
     post = Post.find(params[:id])
     user = current_user

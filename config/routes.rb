@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/users/:user_id/posts/:id/comments", to: "posts#comments"
   get "/users/:user_id/posts/:id/new_comment", to: "posts#new_comment", as: 'new_comment'
   post "/users/:user_id/posts/:id/create_comment", to: "posts#create_comment", as: 'create_comment'
+  post "/users/:user_id/posts/:id/create_comment_json", to: "posts#create_comment_json", as: 'create_comment_json'
   post "/users/:user_id/posts/:id/add_like", to: "posts#add_like", as: 'add_like'
   post "/users/:user_id/posts/:id/delete_post", to: "posts#delete_post", as: 'delete_poste'
   post "/users/:user_id/posts/:id/:comment_id/delete_comment", to: "posts#delete_comment", as: 'delete_comment'
@@ -16,4 +17,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "users#index"
+
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [:index] do
+      resources :posts, only: [:show] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
 end
