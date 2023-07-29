@@ -81,3 +81,6 @@ gem 'devise', '~> 4.9'
 
 # Authorization library Cancancan
 gem 'cancancan'
+
+# API documentation
+gem 'rswag'

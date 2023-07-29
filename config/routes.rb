@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "/users/:user_id/posts", to: "posts#index", as: 'posts'
   get "/users/:user_id/posts/new", to: "posts#new", as: 'new_post'
